@@ -1,0 +1,116 @@
+﻿<Page x:Class="MedInfoSystemApp.Pages.PatientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MedInfoSystemApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Пациенты"
+    IsVisibleChanged="PageIsVisibleChanged" 
+    Style="{StaticResource base_page}">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <WrapPanel Grid.Row="0" HorizontalAlignment="Stretch" 
+           Background="{StaticResource additional}">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="ID:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="40" x:Name="TBoxID"  
+             TextChanged="TBoxSearchTextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Фамилия:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="200" x:Name="TBoxSurname"  
+             TextChanged="TBoxSearchTextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Имя:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="200" x:Name="TBoxName"  
+             TextChanged="TBoxSearchTextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Серия паспорта:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="100" x:Name="TBoxPassportSeries"  
+             TextChanged="TBoxSearchTextChanged" MaxLength="4"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Номер паспорта:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="100" x:Name="TBoxPassportNumber"  
+             TextChanged="TBoxSearchTextChanged" MaxLength="6"/>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Дата рождения" 
+               Style="{StaticResource base_textblock}" />
+                <DatePicker x:Name="DatePickerBirthdayDate" 
+              SelectedDateChanged="DatePickerBirthdayDate_SelectedDateChanged" />
+            </StackPanel>
+            <Button x:Name="BtnGetByQr" Grid.Column="3" Content="Найти по QRcode" HorizontalAlignment="Right" Click="BtnGetByQr_Click"/>
+
+        </WrapPanel>
+        <TextBlock Grid.Row="2" x:Name="TextBlockInfo" 
+           Width="300" HorizontalAlignment="Left" />
+
+        <ListBox x:Name="ListBoxPatients"
+                 ItemContainerStyle="{StaticResource listbox_item}"
+         ScrollViewer.VerticalScrollBarVisibility="Visible"
+         SelectedValuePath="Id"
+         Grid.Row="1" Grid.Column="0">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid HorizontalAlignment="Stretch" UseLayoutRounding="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Grid.Column="0"
+                 Width="60" Height="40" 
+                 Stretch="Uniform" 
+                 Source="{Binding Path=GetPhoto}" 
+                 Margin="5 0 5 0"/>
+
+                        <StackPanel Grid.Column="1" >
+                    
+                            <TextBlock Margin="2" FontSize="16" 
+                     FontWeight="Bold" Text="{Binding Path=GetIdFIO}" 
+                     Width="Auto" HorizontalAlignment="Left" />
+                            <TextBlock Margin="2" FontSize="16" 
+                 Text="{Binding Path=Birthday, StringFormat='d', ConverterCulture='ru-RU'}" 
+                 Width="Auto" HorizontalAlignment="Left"/>
+                            <TextBlock Margin="2" FontSize="16" 
+                      Text="{Binding Path=GetPassport}" 
+                     Width="Auto" HorizontalAlignment="Left" />
+                            <TextBlock Margin="2" FontSize="16" 
+                 Text="{Binding Path=Phone, StringFormat={}Телефон: {0}}"
+                 Width="Auto" HorizontalAlignment="Left" />
+
+                        </StackPanel>
+                        <Image Grid.Column="2" HorizontalAlignment="Right"
+                 Width="60" Height="40" 
+                 Stretch="Uniform" 
+                 Source="{Binding Path=GetQrCode}" 
+                 Margin="5 0 5 0"/>
+
+                        <Button x:Name="BtnMore" Grid.Column="3" Content="..." HorizontalAlignment="Right" Click="BtnMore_Click"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Page>
