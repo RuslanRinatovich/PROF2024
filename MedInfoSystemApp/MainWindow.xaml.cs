@@ -87,5 +87,10 @@ namespace MedInfoSystemApp
                 }
             }
         }
+
+        private void BtnAddPatient_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddPatient(new Patient()));
+        }
     }
 }

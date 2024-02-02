@@ -103,12 +103,21 @@ namespace MedInfoSystemApp.Pages
 
         private void BtnGetByQr_Click(object sender, RoutedEventArgs e)
         {
+            // получение информации по QrCode
+            // используется библиотека MessagingToolkit.QRCode
             QRCodeDecoder decoder = new QRCodeDecoder();
             OpenFileDialog openFileDialog = new OpenFileDialog();
             if (openFileDialog.ShowDialog() == true)
             {
             //    imgQR.Source = new BitmapImage(new Uri(openFileDialog.FileName));
-                MessageBox.Show(decoder.Decode(new QRCodeBitmapImage(new Bitmap(openFileDialog.FileName))));
+
+                int id = Convert.ToInt32(decoder.Decode(new QRCodeBitmapImage(new Bitmap(openFileDialog.FileName))));
+
+                Patient patient = MicEntities.GetContext().Patients.FirstOrDefault(p => p.Id == id);
+                if (patient is null)
+                    MessageBox.Show("Пациент не найден");
+                else
+                    MessageBox.Show($"Пациент\n{patient.GetIdFIO}\n{patient.GetPassport}");
             }
 
         }

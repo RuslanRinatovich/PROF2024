@@ -67,7 +67,7 @@
     <TextBlock Grid.Row="3" Text="Пол:" 
            Style="{StaticResource add_window_textblock}"/>
 
-    <ComboBox x:Name="ComboBoxGender" Grid.Row="3" Grid.Column="1" >
+    <ComboBox x:Name="ComboBoxGender" Grid.Row="3" Grid.Column="1" Text="{Binding Gender}" >
       <ComboBoxItem Content="F"/>
       <ComboBoxItem Content="M"/>
     </ComboBox>
@@ -106,7 +106,7 @@
 
         <TextBlock Grid.Row="9" Text="Дата окончания действия страхового полиса:" 
            Style="{StaticResource add_window_textblock}" TextWrapping="Wrap"/>
-        <DatePicker x:Name="DatePickerPolicyExpirationDate" Grid.Column="1" 
+        <DatePicker x:Name="DatePickerPolicyExpirationDate" Grid.Column="1" SelectedDate="{Binding PolicyExpirationDate}" 
           HorizontalAlignment="Left"  Grid.Row="9" 
           VerticalAlignment="Top"/>
         <TextBlock Grid.Row="10" Text="Страховая компания:" 
@@ -128,10 +128,10 @@
 
         <TextBlock Grid.Row="1" Text="Фото:"  Grid.Column="2" 
         Style="{StaticResource add_window_textblock}" />
-        <Image x:Name="ImageUserPhoto" Grid.Row="1" Grid.Column="3" Grid.RowSpan="8" Source="{Binding GetPhoto}" />
+        <Image x:Name="ImagePatientPhoto" Grid.Row="1" Grid.Column="3" Grid.RowSpan="8" Source="{Binding GetPhoto}" />
 
         <Image x:Name="ImageQRCode" Grid.Row="13" Grid.Column="1" Source="{Binding GetQrCode}"/>
-        <Button x:Name="ButtonLoadPhoto" Grid.Column="3" Grid.Row="9" Width="auto"
+        <Button x:Name="ButtonLoadPhoto" Grid.Column="3" Grid.Row="9" Width="auto" Click="BtnLoadClick"
         HorizontalAlignment="Right" Margin="0"
         Content="Загрузить фото" />
     <StackPanel Orientation="Horizontal" 
@@ -139,7 +139,7 @@
           HorizontalAlignment="Center">
       <Button Width="100" Height="30" 
           Content="OK" 
-          x:Name="BtnOk" />
+          x:Name="BtnOk" Click="BtnOk_Click" />
       <Button Width="100"
           Height="30" 
           Content="Отмена" 

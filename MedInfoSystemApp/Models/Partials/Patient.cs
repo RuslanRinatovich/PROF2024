@@ -8,7 +8,10 @@ using System.Threading.Tasks;
 namespace MedInfoSystemApp.Models
 {
     public partial class Patient
+
     {
+
+
         public string GetPhoto
         {
             get
@@ -25,6 +28,8 @@ namespace MedInfoSystemApp.Models
         {
             get
             {
+                if (Medcard is null)
+                    return null;
                 //если поле фото пустое, отобразим картинку заглушку
                 if (Medcard.QR is null)
                     return Directory.GetCurrentDirectory() + @"\Images\picture.png";

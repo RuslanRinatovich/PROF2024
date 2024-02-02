@@ -38,10 +38,14 @@
            Height="40" HorizontalAlignment="Right" 
            VerticalAlignment="Top"/>
         <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 20 0">
-           
-           
+
+            <Button x:Name="BtnAddPatient" 
+                 Click="BtnAddPatient_Click" ToolTip="Регистрация пациента" Content="Регистрация пациента">
+
+            </Button>
             <Button x:Name="BtnBack" 
                  Click="BtnBackClick" ToolTip="Назад" Content="Назад" Visibility="Collapsed">
+                
             </Button>
         </StackPanel>
         <Grid Grid.Row="2" Background="{StaticResource additional}"/>

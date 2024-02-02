@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\PROF2024\MedInfoSystemApp\obj\Debug\
+d:\PROF2024\PROF2024\MedInfoSystemApp\obj\Debug\
 MedInfoSystemApp
 none
 false
 DEBUG;TRACE
-C:\PROF2024\MedInfoSystemApp\App.xaml
+d:\PROF2024\PROF2024\MedInfoSystemApp\App.xaml
 3932886517
 2417449029
-30-1684840549
-22615235099
+30-1350841790
+22-524191911
 MainWindow.xaml;Pages\AddPatient.xaml;Pages\PatientsPage.xaml;
 
-True
+False
 
