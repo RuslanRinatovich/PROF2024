@@ -1,0 +1,17 @@
+﻿<Page x:Class="WpfMICApp.Pages.LookPatientsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfMICApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1024"
+      Title="LookPatientsPage">
+
+    <Grid>
+       
+        <Image Width="1024" Height="700" Source="/WpfMICApp;component/Resources/map.png" VerticalAlignment="Top"/>
+        <Canvas Name="MyCanvas" Width="1024" Height="700"/>
+        <Button Click="Button_Click" VerticalAlignment="Bottom"/>
+    </Grid>
+</Page>
