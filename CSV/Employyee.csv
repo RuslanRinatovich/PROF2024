@@ -1,0 +1,21 @@
+Id;Surname;Name;Patronymic;Birthday;PassportSeries;PassportNumber;Gender;Address;phone;Email;Photo;SpecializationId
+1;Strickland;Aline;Lacey;14.07.2000;2203;200901;F;P.O. Box 174, 2985 Suscipit Rd.;1-736-274-2523;aliquam.adipiscing@yahoo.couk;1.jpg;1
+2;Spears;Lee;Garrett;27.10.1971;3075;872273;F;370 Et St.;1-485-623-4707;proin.vel@hotmail.com;2.jpg;2
+3;Pace;Cameran;Piper;12.11.2011;5445;841550;F;2166 Cursus Avenue;1-365-857-4837;justo.faucibus@outlook.net;3.jpg;3
+4;Bryan;Riley;Blossom;21.09.2023;6701;501054;F;Ap #929-4260 Massa. Rd.;1-157-608-5083;non@aol.edu;4.jpg;4
+5;Perkins;Aphrodite;Daquan;07.11.1964;4491;384368;F;4705 Justo Av.;1-750-355-4162;convallis.ligula@icloud.org;5.jpg;14
+6;Ortiz;Remedios;Xaviera;01.11.1962;9539;672219;F;644-8512 Orci Street;1-687-974-2435;nisl.elementum@hotmail.org;6.jpg;14
+7;Lindsey;Claire;Charlotte;27.03.1968;1844;956384;F;Ap #911-902 Morbi Av.;1-924-737-1671;urna.justo@aol.couk;7.jpg;7
+8;Gillespie;Lana;Isabella;25.04.1998;9972;806781;F;Ap #834-9959 Aliquam Avenue;1-646-426-7365;consectetuer.adipiscing.elit@yahoo.ca;8.jpg;8
+9;Carson;Lael;Kiona;28.11.1993;9005;641745;F;779 Ut Av.;1-351-113-2464;aliquam.arcu@hotmail.couk;9.jpg;9
+10;Dodson;Regan;Anika;13.02.1958;4341;951730;F;Ap #730-9118 Egestas. Street;1-156-222-7576;tortor.integer.aliquam@icloud.couk;10.jpg;10
+11;Strickland;Aline;Lacey;14.07.2000;2203;200901;M;P.O. Box 174, 2985 Suscipit Rd.;1-736-274-2523;nulla.integer.vulputate@aol.org;11.jpg;11
+12;Spears;Lee;Garrett;27.10.1971;3075;872273;M;370 Et St.;1-485-623-4707;dictum@hotmail.net;12.jpg;12
+13;Pace;Cameran;Piper;12.11.2011;5445;841550;M;2166 Cursus Avenue;1-365-857-4837;egestas@hotmail.com;13.jpg;13
+14;Bryan;Riley;Blossom;21.09.2023;6701;501054;M;Ap #929-4260 Massa. Rd.;1-157-608-5083;diam@hotmail.com;14.jpg;14
+15;Perkins;Aphrodite;Daquan;07.11.1964;4491;384368;M;4705 Justo Av.;1-750-355-4162;mattis.ornare@aol.edu;15.jpg;15
+16;Ortiz;Remedios;Xaviera;01.11.1962;9539;672219;M;644-8512 Orci Street;1-687-974-2435;quis.lectus@icloud.org;16.jpg;6
+17;Lindsey;Claire;Charlotte;27.03.1968;1844;956384;M;Ap #911-902 Morbi Av.;1-924-737-1671;auctor.mauris@outlook.com;17.jpg;7
+18;Gillespie;Lana;Isabella;25.04.1998;9972;806781;M;Ap #834-9959 Aliquam Avenue;1-646-426-7365;vitae@protonmail.org;18.jpg;8
+19;Carson;Lael;Kiona;28.11.1993;9005;641745;M;779 Ut Av.;1-351-113-2464;integer.eu@yahoo.com;19.jpg;9
+20;Dodson;Regan;Anika;13.02.1958;4341;951730;M;Ap #730-9118 Egestas. Street;1-156-222-7576;ac.eleifend.vitae@protonmail.com;20.jpg;10

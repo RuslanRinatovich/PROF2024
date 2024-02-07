@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище PROF2024Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="DeseaseHistory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VisitDate" Type="date" Nullable="false" />
+    <Property Name="MedcardId" Type="int" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="PassportSeries" Type="int" Nullable="false" />
+    <Property Name="PassportNumber" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="100" />
+    <Property Name="SpecializationId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HospitalBed">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="2" Nullable="false" />
+    <Property Name="WardId" Type="int" Nullable="false" />
+    <Property Name="IsFree" Type="bit" />
+  </EntityType>
+  <EntityType Name="Hospitalization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Datetime" Type="datetime" />
+    <Property Name="HospitalizationReferralId" Type="int" Nullable="false" />
+    <Property Name="RefusalByPatient" Type="bit" />
+    <Property Name="Cancellation" Type="bit" />
+    <Property Name="CancellationReason" Type="nvarchar" MaxLength="1000" />
+    <Property Name="HospitalBedId" Type="int" />
+  </EntityType>
+  <EntityType Name="HospitalizationDepartment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="HospitalizationReferral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Purpose" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="DepartmentId" Type="int" Nullable="false" />
+    <Property Name="Conditions" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Medcard">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IssueDate" Type="date" Nullable="false" />
+    <Property Name="Diagnosis" Type="nvarchar" MaxLength="1000" />
+    <Property Name="LastVisitDate" Type="date" Nullable="false" />
+    <Property Name="NextVisitDate" Type="date" />
+    <Property Name="QR" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Patient">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Surname" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Patronymic" Type="nvarchar" MaxLength="100" />
+    <Property Name="Birthday" Type="date" Nullable="false" />
+    <Property Name="PassportSeries" Type="int" Nullable="false" />
+    <Property Name="PassportNumber" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="3" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Phone" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="100" />
+    <Property Name="MedcardId" Type="int" Nullable="false" />
+    <Property Name="PolicyNumber" Type="nvarchar" MaxLength="16" Nullable="false" />
+    <Property Name="PolicyExpirationDate" Type="date" Nullable="false" />
+    <Property Name="InsuranceCompany" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="WorkPlace" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Photo" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PatientReception">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="TimeSheetId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Prescription">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeseaseHistoryId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="Dosage" Type="nvarchar" MaxLength="100" />
+    <Property Name="UsingFormat" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Referral">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="DeseaseHistoryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="AccessLevel" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Room">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Code" Type="int" Nullable="false" />
+    <Property Name="RoomTypeId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RoomType">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specialization">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="1000" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Color" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TimeSheet">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Date" Type="date" Nullable="false" />
+    <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
+    <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
+    <Property Name="EmployeeId" Type="int" Nullable="false" />
+    <Property Name="DurationPersonTime" Type="int" Nullable="false" />
+    <Property Name="RoomId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TreatmentEvent">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DateTime" Type="datetime" Nullable="false" />
+    <Property Name="DoctorId" Type="int" Nullable="false" />
+    <Property Name="EventTypeId" Type="int" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="Results" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="Recommendations" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="PatientId" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ward">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Title" Type="nvarchar" MaxLength="10" />
+    <Property Name="DepartmentId" Type="int" />
+  </EntityType>
+  <Association Name="FK_DeseaseHistory_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="DeseaseHistory" Type="Self.DeseaseHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeseaseHistory">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DeseaseHistory_Medcard">
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="1" />
+    <End Role="DeseaseHistory" Type="Self.DeseaseHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medcard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="DeseaseHistory">
+        <PropertyRef Name="MedcardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employee_Specialization">
+    <End Role="Specialization" Type="Self.Specialization" Multiplicity="1" />
+    <End Role="Employee" Type="Self.Employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specialization">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Employee">
+        <PropertyRef Name="SpecializationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HospitalBed_Ward">
+    <End Role="Ward" Type="Self.Ward" Multiplicity="1" />
+    <End Role="HospitalBed" Type="Self.HospitalBed" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ward">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HospitalBed">
+        <PropertyRef Name="WardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hospitalization_HospitalBed">
+    <End Role="HospitalBed" Type="Self.HospitalBed" Multiplicity="0..1" />
+    <End Role="Hospitalization" Type="Self.Hospitalization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalBed">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hospitalization">
+        <PropertyRef Name="HospitalBedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Hospitalization_HospitalizationReferral">
+    <End Role="HospitalizationReferral" Type="Self.HospitalizationReferral" Multiplicity="1" />
+    <End Role="Hospitalization" Type="Self.Hospitalization" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalizationReferral">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Hospitalization">
+        <PropertyRef Name="HospitalizationReferralId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HospitalizationReferral_HospitalizationDepartment">
+    <End Role="HospitalizationDepartment" Type="Self.HospitalizationDepartment" Multiplicity="1" />
+    <End Role="HospitalizationReferral" Type="Self.HospitalizationReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalizationDepartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HospitalizationReferral">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HospitalizationReferral_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="HospitalizationReferral" Type="Self.HospitalizationReferral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="HospitalizationReferral">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Patient_Medcard1">
+    <End Role="Medcard" Type="Self.Medcard" Multiplicity="1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medcard">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Patient">
+        <PropertyRef Name="MedcardId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReception_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatientReception">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReception_Status">
+    <End Role="Status" Type="Self.Status" Multiplicity="1" />
+    <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Status">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatientReception">
+        <PropertyRef Name="StatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PatientReception_TimeSheet">
+    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="1" />
+    <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TimeSheet">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="PatientReception">
+        <PropertyRef Name="TimeSheetId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Prescription_DeseaseHistory">
+    <End Role="DeseaseHistory" Type="Self.DeseaseHistory" Multiplicity="1" />
+    <End Role="Prescription" Type="Self.Prescription" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeseaseHistory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Prescription">
+        <PropertyRef Name="DeseaseHistoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Referral_DeseaseHistory">
+    <End Role="DeseaseHistory" Type="Self.DeseaseHistory" Multiplicity="1" />
+    <End Role="Referral" Type="Self.Referral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DeseaseHistory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Referral">
+        <PropertyRef Name="DeseaseHistoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Referral_EventType">
+    <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
+    <End Role="Referral" Type="Self.Referral" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Referral">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Room_RoomType">
+    <End Role="RoomType" Type="Self.RoomType" Multiplicity="1" />
+    <End Role="Room" Type="Self.Room" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RoomType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Room">
+        <PropertyRef Name="RoomTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeSheet_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeSheet">
+        <PropertyRef Name="EmployeeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TimeSheet_Room">
+    <End Role="Room" Type="Self.Room" Multiplicity="1" />
+    <End Role="TimeSheet" Type="Self.TimeSheet" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Room">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeSheet">
+        <PropertyRef Name="RoomId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentEvents_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="TreatmentEvent" Type="Self.TreatmentEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreatmentEvent">
+        <PropertyRef Name="DoctorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentEvents_EventType">
+    <End Role="EventType" Type="Self.EventType" Multiplicity="1" />
+    <End Role="TreatmentEvent" Type="Self.TreatmentEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventType">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreatmentEvent">
+        <PropertyRef Name="EventTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TreatmentEvents_Patient">
+    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="TreatmentEvent" Type="Self.TreatmentEvent" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Patient">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TreatmentEvent">
+        <PropertyRef Name="PatientId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ward_HospitalizationDepartment">
+    <End Role="HospitalizationDepartment" Type="Self.HospitalizationDepartment" Multiplicity="0..1" />
+    <End Role="Ward" Type="Self.Ward" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HospitalizationDepartment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Ward">
+        <PropertyRef Name="DepartmentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище PROF2024ModelContainer">
+    <EntitySet Name="DeseaseHistory" EntityType="Self.DeseaseHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HospitalBed" EntityType="Self.HospitalBed" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Hospitalization" EntityType="Self.Hospitalization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HospitalizationDepartment" EntityType="Self.HospitalizationDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HospitalizationReferral" EntityType="Self.HospitalizationReferral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medcard" EntityType="Self.Medcard" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PatientReception" EntityType="Self.PatientReception" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Prescription" EntityType="Self.Prescription" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Referral" EntityType="Self.Referral" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Room" EntityType="Self.Room" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RoomType" EntityType="Self.RoomType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Specialization" EntityType="Self.Specialization" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TimeSheet" EntityType="Self.TimeSheet" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TreatmentEvent" EntityType="Self.TreatmentEvent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ward" EntityType="Self.Ward" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_DeseaseHistory_Employee" Association="Self.FK_DeseaseHistory_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="DeseaseHistory" EntitySet="DeseaseHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DeseaseHistory_Medcard" Association="Self.FK_DeseaseHistory_Medcard">
+      <End Role="Medcard" EntitySet="Medcard" />
+      <End Role="DeseaseHistory" EntitySet="DeseaseHistory" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employee_Specialization" Association="Self.FK_Employee_Specialization">
+      <End Role="Specialization" EntitySet="Specialization" />
+      <End Role="Employee" EntitySet="Employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HospitalBed_Ward" Association="Self.FK_HospitalBed_Ward">
+      <End Role="Ward" EntitySet="Ward" />
+      <End Role="HospitalBed" EntitySet="HospitalBed" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hospitalization_HospitalBed" Association="Self.FK_Hospitalization_HospitalBed">
+      <End Role="HospitalBed" EntitySet="HospitalBed" />
+      <End Role="Hospitalization" EntitySet="Hospitalization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Hospitalization_HospitalizationReferral" Association="Self.FK_Hospitalization_HospitalizationReferral">
+      <End Role="HospitalizationReferral" EntitySet="HospitalizationReferral" />
+      <End Role="Hospitalization" EntitySet="Hospitalization" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HospitalizationReferral_HospitalizationDepartment" Association="Self.FK_HospitalizationReferral_HospitalizationDepartment">
+      <End Role="HospitalizationDepartment" EntitySet="HospitalizationDepartment" />
+      <End Role="HospitalizationReferral" EntitySet="HospitalizationReferral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HospitalizationReferral_Patient" Association="Self.FK_HospitalizationReferral_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="HospitalizationReferral" EntitySet="HospitalizationReferral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Patient_Medcard1" Association="Self.FK_Patient_Medcard1">
+      <End Role="Medcard" EntitySet="Medcard" />
+      <End Role="Patient" EntitySet="Patient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReception_Patient" Association="Self.FK_PatientReception_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="PatientReception" EntitySet="PatientReception" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReception_Status" Association="Self.FK_PatientReception_Status">
+      <End Role="Status" EntitySet="Status" />
+      <End Role="PatientReception" EntitySet="PatientReception" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PatientReception_TimeSheet" Association="Self.FK_PatientReception_TimeSheet">
+      <End Role="TimeSheet" EntitySet="TimeSheet" />
+      <End Role="PatientReception" EntitySet="PatientReception" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Prescription_DeseaseHistory" Association="Self.FK_Prescription_DeseaseHistory">
+      <End Role="DeseaseHistory" EntitySet="DeseaseHistory" />
+      <End Role="Prescription" EntitySet="Prescription" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Referral_DeseaseHistory" Association="Self.FK_Referral_DeseaseHistory">
+      <End Role="DeseaseHistory" EntitySet="DeseaseHistory" />
+      <End Role="Referral" EntitySet="Referral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Referral_EventType" Association="Self.FK_Referral_EventType">
+      <End Role="EventType" EntitySet="EventType" />
+      <End Role="Referral" EntitySet="Referral" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Room_RoomType" Association="Self.FK_Room_RoomType">
+      <End Role="RoomType" EntitySet="RoomType" />
+      <End Role="Room" EntitySet="Room" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeSheet_Employee" Association="Self.FK_TimeSheet_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TimeSheet" EntitySet="TimeSheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TimeSheet_Room" Association="Self.FK_TimeSheet_Room">
+      <End Role="Room" EntitySet="Room" />
+      <End Role="TimeSheet" EntitySet="TimeSheet" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentEvents_Employee" Association="Self.FK_TreatmentEvents_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="TreatmentEvent" EntitySet="TreatmentEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentEvents_EventType" Association="Self.FK_TreatmentEvents_EventType">
+      <End Role="EventType" EntitySet="EventType" />
+      <End Role="TreatmentEvent" EntitySet="TreatmentEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TreatmentEvents_Patient" Association="Self.FK_TreatmentEvents_Patient">
+      <End Role="Patient" EntitySet="Patient" />
+      <End Role="TreatmentEvent" EntitySet="TreatmentEvent" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Employee" Association="Self.FK_Users_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Role" Association="Self.FK_Users_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ward_HospitalizationDepartment" Association="Self.FK_Ward_HospitalizationDepartment">
+      <End Role="HospitalizationDepartment" EntitySet="HospitalizationDepartment" />
+      <End Role="Ward" EntitySet="Ward" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
