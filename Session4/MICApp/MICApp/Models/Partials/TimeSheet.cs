@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MICApp.Models
 {
+
     public partial class TimeSheet
     {
 
@@ -45,6 +46,25 @@ namespace MICApp.Models
                 return $"{Room.Title} #{Room.Code}";
             }
         }
+
+        public string GetCoupons
+        {
+            get
+            {
+
+                string result = "Расписание приёма";
+                foreach (PatientReception patientReception in PatientReceptions)
+                {
+                    string x = "[ ]";
+                    if (patientReception.Status)
+                        x = "[+]";
+                    result = result + $"\n{patientReception.GetCoupon}:{x}";
+                }
+                return result;
+            }
+        }
+
+
 
     }
 }

@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="Хранилище PROF2024ModelContainer" CdmEntityContainer="MicEntities">
+  <EntityContainerMapping StorageEntityContainer="Хранилище MicModelContainer" CdmEntityContainer="MicEntities">
     <EntitySetMapping Name="DeseaseHistories">
-      <EntityTypeMapping TypeName="PROF2024Model.DeseaseHistory">
+      <EntityTypeMapping TypeName="MicModel.DeseaseHistory">
         <MappingFragment StoreEntitySet="DeseaseHistory">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
@@ -13,7 +13,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Employees">
-      <EntityTypeMapping TypeName="PROF2024Model.Employee">
+      <EntityTypeMapping TypeName="MicModel.Employee">
         <MappingFragment StoreEntitySet="Employee">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -32,7 +32,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="EventTypes">
-      <EntityTypeMapping TypeName="PROF2024Model.EventType">
+      <EntityTypeMapping TypeName="MicModel.EventType">
         <MappingFragment StoreEntitySet="EventType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -40,7 +40,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HospitalBeds">
-      <EntityTypeMapping TypeName="PROF2024Model.HospitalBed">
+      <EntityTypeMapping TypeName="MicModel.HospitalBed">
         <MappingFragment StoreEntitySet="HospitalBed">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -50,7 +50,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Hospitalizations">
-      <EntityTypeMapping TypeName="PROF2024Model.Hospitalization">
+      <EntityTypeMapping TypeName="MicModel.Hospitalization">
         <MappingFragment StoreEntitySet="Hospitalization">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Datetime" ColumnName="Datetime" />
@@ -63,7 +63,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HospitalizationDepartments">
-      <EntityTypeMapping TypeName="PROF2024Model.HospitalizationDepartment">
+      <EntityTypeMapping TypeName="MicModel.HospitalizationDepartment">
         <MappingFragment StoreEntitySet="HospitalizationDepartment">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -71,7 +71,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="HospitalizationReferrals">
-      <EntityTypeMapping TypeName="PROF2024Model.HospitalizationReferral">
+      <EntityTypeMapping TypeName="MicModel.HospitalizationReferral">
         <MappingFragment StoreEntitySet="HospitalizationReferral">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -83,7 +83,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Medcards">
-      <EntityTypeMapping TypeName="PROF2024Model.Medcard">
+      <EntityTypeMapping TypeName="MicModel.Medcard">
         <MappingFragment StoreEntitySet="Medcard">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
@@ -95,7 +95,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Patients">
-      <EntityTypeMapping TypeName="PROF2024Model.Patient">
+      <EntityTypeMapping TypeName="MicModel.Patient">
         <MappingFragment StoreEntitySet="Patient">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -118,19 +118,20 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="PatientReceptions">
-      <EntityTypeMapping TypeName="PROF2024Model.PatientReception">
+      <EntityTypeMapping TypeName="MicModel.PatientReception">
         <MappingFragment StoreEntitySet="PatientReception">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
           <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
           <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-          <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="TimeSheetId" ColumnName="TimeSheetId" />
+          <ScalarProperty Name="CouponNumber" ColumnName="CouponNumber" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Prescriptions">
-      <EntityTypeMapping TypeName="PROF2024Model.Prescription">
+      <EntityTypeMapping TypeName="MicModel.Prescription">
         <MappingFragment StoreEntitySet="Prescription">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DeseaseHistoryId" ColumnName="DeseaseHistoryId" />
@@ -141,7 +142,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Referrals">
-      <EntityTypeMapping TypeName="PROF2024Model.Referral">
+      <EntityTypeMapping TypeName="MicModel.Referral">
         <MappingFragment StoreEntitySet="Referral">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
@@ -150,7 +151,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Roles">
-      <EntityTypeMapping TypeName="PROF2024Model.Role">
+      <EntityTypeMapping TypeName="MicModel.Role">
         <MappingFragment StoreEntitySet="Role">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -159,7 +160,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Rooms">
-      <EntityTypeMapping TypeName="PROF2024Model.Room">
+      <EntityTypeMapping TypeName="MicModel.Room">
         <MappingFragment StoreEntitySet="Room">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -169,7 +170,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="RoomTypes">
-      <EntityTypeMapping TypeName="PROF2024Model.RoomType">
+      <EntityTypeMapping TypeName="MicModel.RoomType">
         <MappingFragment StoreEntitySet="RoomType">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -177,7 +178,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Specializations">
-      <EntityTypeMapping TypeName="PROF2024Model.Specialization">
+      <EntityTypeMapping TypeName="MicModel.Specialization">
         <MappingFragment StoreEntitySet="Specialization">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -185,7 +186,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Status">
-      <EntityTypeMapping TypeName="PROF2024Model.Status">
+      <EntityTypeMapping TypeName="MicModel.Status">
         <MappingFragment StoreEntitySet="Status">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -194,7 +195,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="PROF2024Model.sysdiagram">
+      <EntityTypeMapping TypeName="MicModel.sysdiagram">
         <MappingFragment StoreEntitySet="sysdiagrams">
           <ScalarProperty Name="name" ColumnName="name" />
           <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -205,7 +206,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TimeSheets">
-      <EntityTypeMapping TypeName="PROF2024Model.TimeSheet">
+      <EntityTypeMapping TypeName="MicModel.TimeSheet">
         <MappingFragment StoreEntitySet="TimeSheet">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
@@ -218,7 +219,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TreatmentEvents">
-      <EntityTypeMapping TypeName="PROF2024Model.TreatmentEvent">
+      <EntityTypeMapping TypeName="MicModel.TreatmentEvent">
         <MappingFragment StoreEntitySet="TreatmentEvent">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="DateTime" ColumnName="DateTime" />
@@ -233,7 +234,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Users">
-      <EntityTypeMapping TypeName="PROF2024Model.User">
+      <EntityTypeMapping TypeName="MicModel.User">
         <MappingFragment StoreEntitySet="User">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Password" ColumnName="Password" />
@@ -242,7 +243,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Wards">
-      <EntityTypeMapping TypeName="PROF2024Model.Ward">
+      <EntityTypeMapping TypeName="MicModel.Ward">
         <MappingFragment StoreEntitySet="Ward">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Title" ColumnName="Title" />

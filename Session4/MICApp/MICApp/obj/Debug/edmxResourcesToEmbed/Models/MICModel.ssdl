@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="Хранилище PROF2024Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="Хранилище MicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="DeseaseHistory">
     <Key>
       <PropertyRef Name="Id" />
@@ -111,12 +111,13 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
     <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
-    <Property Name="PatientId" Type="int" Nullable="false" />
-    <Property Name="StatusId" Type="int" Nullable="false" />
+    <Property Name="PatientId" Type="int" />
+    <Property Name="Status" Type="bit" Nullable="false" />
     <Property Name="TimeSheetId" Type="int" Nullable="false" />
+    <Property Name="CouponNumber" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Prescription">
     <Key>
@@ -189,7 +190,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="int" Nullable="false" />
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Date" Type="date" Nullable="false" />
     <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
     <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
@@ -336,7 +337,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PatientReception_Patient">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
     <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
@@ -344,18 +345,6 @@
       </Principal>
       <Dependent Role="PatientReception">
         <PropertyRef Name="PatientId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PatientReception_Status">
-    <End Role="Status" Type="Self.Status" Multiplicity="1" />
-    <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PatientReception">
-        <PropertyRef Name="StatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -515,7 +504,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Хранилище PROF2024ModelContainer">
+  <EntityContainer Name="Хранилище MicModelContainer">
     <EntitySet Name="DeseaseHistory" EntityType="Self.DeseaseHistory" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
@@ -576,10 +565,6 @@
     </AssociationSet>
     <AssociationSet Name="FK_PatientReception_Patient" Association="Self.FK_PatientReception_Patient">
       <End Role="Patient" EntitySet="Patient" />
-      <End Role="PatientReception" EntitySet="PatientReception" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PatientReception_Status" Association="Self.FK_PatientReception_Status">
-      <End Role="Status" EntitySet="Status" />
       <End Role="PatientReception" EntitySet="PatientReception" />
     </AssociationSet>
     <AssociationSet Name="FK_PatientReception_TimeSheet" Association="Self.FK_PatientReception_TimeSheet">

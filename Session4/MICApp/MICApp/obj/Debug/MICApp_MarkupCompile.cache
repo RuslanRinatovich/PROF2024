@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\
 MICApp
 none
 false
 DEBUG;TRACE
-D:\PROF2024\PROF2024\Session4\MICApp\MICApp\App.xaml
-3-225184210
-2417449029
-34121840607
-18-1521533710
-Pages\TimeSheetPage.xaml;Windows\AddTimeSheet.xaml;Windows\MainWindow.xaml;
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\App.xaml
+41869519993
+2-1767752318
+39-625940435
+20-455002667
+Pages\TimeSheetPage.xaml;Pages\AddTimeSheet.xaml;Windows\MainWindow.xaml;Windows\PatientReceptionWindow.xaml;
 
 False
 

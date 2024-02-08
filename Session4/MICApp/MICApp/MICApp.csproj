@@ -41,9 +41,13 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="MessagingToolkit.QRCode, Version=1.3.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MessagingToolkit.QRCode.1.3.0\lib\MessagingToolkit.QRCode.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
@@ -64,6 +68,94 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\DeseaseHistory.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Employee.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventType.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalBed.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hospitalization.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalizationDepartment.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HospitalizationReferral.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Manager.cs" />
+    <Compile Include="Models\Medcard.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MicModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MicModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MicModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MicModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Partials\Employee.cs" />
+    <Compile Include="Models\Partials\Patient.cs" />
+    <Compile Include="Models\Partials\PatientReception.cs" />
+    <Compile Include="Models\Patient.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PatientReception.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Prescription.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Referral.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Role.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Room.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RoomType.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Specialization.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TimeSheet.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TreatmentEvent.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Ward.cs">
+      <DependentUpon>MicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\PatientReceptionWindow.xaml.cs">
+      <DependentUpon>PatientReceptionWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="Pages\TimeSheetPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -80,89 +172,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Models\DeseaseHistory.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EventType.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalBed.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Hospitalization.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalizationDepartment.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\HospitalizationReferral.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Medcard.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MICModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MICModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MICModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\MICModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MICModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\Partials\MicEntities.cs" />
     <Compile Include="Models\Partials\TimeSheet.cs" />
-    <Compile Include="Models\Patient.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PatientReception.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Prescription.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Referral.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Role.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Room.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RoomType.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Specialization.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Status.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TimeSheet.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\TreatmentEvent.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\User.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ward.cs">
-      <DependentUpon>MICModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Pages\TimeSheetPage.xaml.cs">
       <DependentUpon>TimeSheetPage.xaml</DependentUpon>
     </Compile>
@@ -173,6 +184,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Windows\PatientReceptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -192,12 +207,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\MICModel.edmx">
+    <EntityDeploy Include="Models\MicModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MICModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>MicModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\MICModel.edmx.diagram">
-      <DependentUpon>MICModel.edmx</DependentUpon>
+    <None Include="Models\MicModel.edmx.diagram">
+      <DependentUpon>MicModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -208,17 +223,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <Content Include="Models\MICModel.Context.tt">
+    <Content Include="Models\MicModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>MICModel.Context.cs</LastGenOutput>
-      <DependentUpon>MICModel.edmx</DependentUpon>
+      <DependentUpon>MicModel.edmx</DependentUpon>
+      <LastGenOutput>MicModel.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\MICModel.tt">
+    <Content Include="Models\MicModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MICModel.edmx</DependentUpon>
-      <LastGenOutput>MICModel.cs</LastGenOutput>
+      <DependentUpon>MicModel.edmx</DependentUpon>
+      <LastGenOutput>MicModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

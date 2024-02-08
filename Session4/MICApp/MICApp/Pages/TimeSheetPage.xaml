@@ -73,15 +73,14 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="60"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="300"/>
                             <ColumnDefinition Width="60"/>
                         </Grid.ColumnDefinitions>
-
                         <Image Grid.Column="0"
                  Width="60" Height="40" 
                  Stretch="Uniform" 
                  Source="{Binding Path=GetPhoto}" 
                  Margin="5 0 5 0"/>
-
                         <StackPanel Grid.Column="1" >
 
                             <TextBlock Margin="2" FontSize="16" 
@@ -96,8 +95,11 @@
                             <TextBlock Margin="2" FontSize="16" 
                  Text="{Binding Path=GetRoom}" 
                  Width="Auto" HorizontalAlignment="Left" />
-
+              
                         </StackPanel>
+
+                        <TextBlock Margin="2" FontSize="16" Grid.Column="2"
+                 Text="{Binding Path=GetCoupons}" Width="Auto" HorizontalAlignment="Left" />
                         <Button x:Name="BtnEdit" Grid.Column="3" Content="Записаться к врачу" HorizontalAlignment="Right" Click="BtnEdit_Click"/>
                     </Grid>
                 </DataTemplate>

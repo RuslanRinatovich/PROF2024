@@ -1,4 +1,5 @@
-﻿using MICApp.Pages;
+﻿using MICApp.Models;
+using MICApp.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,13 @@ namespace MICApp
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new TimeSheetPage());
+            Manager.MainFrame = MainFrame;
+           MainFrame.Navigate(new TimeSheetPage());
         }
 
         private void BtnBackClick(object sender, RoutedEventArgs e)
         {
-            MainFrame.GoBack();
+            Manager.MainFrame.GoBack();
         }
 
 

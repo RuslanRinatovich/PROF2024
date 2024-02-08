@@ -1,6 +1,4 @@
-D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.csproj.AssemblyReference.cache
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Pages\TimeSheetPage.g.cs
-D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\AddTimeSheet.g.cs
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\MainWindow.g.cs
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\App.g.cs
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp_Content.g.cs
@@ -16,7 +14,6 @@ D:\PROF2024\PROF2024\Session4\MICApp\MICApp\bin\Debug\EntityFramework.SqlServer.
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\bin\Debug\ru\EntityFramework.resources.dll
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\App.baml
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Pages\TimeSheetPage.baml
-D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\AddTimeSheet.baml
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\MainWindow.baml
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.g.resources
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.Properties.Resources.resources
@@ -25,3 +22,10 @@ D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.csproj.CoreCompileI
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.csproj.CopyComplete
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.exe
 D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.pdb
+D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Pages\AddTimeSheet.g.cs
+D:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Pages\AddTimeSheet.baml
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\MICApp.csproj.AssemblyReference.cache
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\PatientReceptionWindow.g.cs
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\obj\Debug\Windows\PatientReceptionWindow.baml
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\bin\Debug\MessagingToolkit.QRCode.dll
+d:\PROF2024\PROF2024\Session4\MICApp\MICApp\bin\Debug\ru\EntityFramework.SqlServer.resources.dll

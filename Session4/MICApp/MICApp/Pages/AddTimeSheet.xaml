@@ -6,9 +6,160 @@
       xmlns:local="clr-namespace:MICApp.Windows"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddTimeSheet">
-
+     Title="Добавить "  IsVisibleChanged="Page_IsVisibleChanged">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="{StaticResource additional}" Grid.ColumnSpan="4"/>
+
+        <TextBlock Grid.Row="0"  
+           Grid.ColumnSpan="4"
+           HorizontalAlignment="Center" 
+           VerticalAlignment="Center"
+           Foreground="{StaticResource main}"
+           FontSize="20"
+           FontWeight="Bold" Text="Добавить расписание"/>
+
+
+        <Image  Margin="10" HorizontalAlignment="Left"/>
+        <WrapPanel Grid.Row="1" HorizontalAlignment="Stretch"  Grid.ColumnSpan="2"
+           Background="{StaticResource additional}">
+
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="ID:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="40" x:Name="TBoxID"  
+             TextChanged="TBoxID_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Фамилия:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="200" x:Name="TBoxSurname"  
+             TextChanged="TBoxSurname_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Имя:" 
+               Style="{StaticResource base_textblock}"/>
+                <TextBox Width="200" x:Name="TBoxName"  
+             TextChanged="TBoxName_TextChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock  Text="Специализация:" 
+               Style="{StaticResource base_textblock}"/>
+                <ComboBox Width="275" x:Name="ComboSpecialization"
+                          FontSize="14" Padding="3" 
+                         DisplayMemberPath="Title" 
+                          SelectionChanged="ComboSpecialization_SelectionChanged"/>
+            </StackPanel>
+        </WrapPanel>
+
+        <TextBlock Grid.Row="3" x:Name="TextBlockInfo" Width="300" HorizontalAlignment="Left" Grid.ColumnSpan="2"/>
+
+        <ListBox x:Name="ListBoxEmployee" Grid.ColumnSpan="2"
+                 ItemContainerStyle="{StaticResource listbox_item}"
+         ScrollViewer.VerticalScrollBarVisibility="Visible"
+         SelectedValuePath="Id"
+         Grid.Row="2" Grid.Column="0">
+
+            <ListBox.ItemTemplate>
+                <DataTemplate >
+                    <Grid HorizontalAlignment="Stretch" UseLayoutRounding="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="60"/>
+                        </Grid.ColumnDefinitions>
+                        <Image Grid.Column="0"
+                 Width="60" Height="40" 
+                 Stretch="Uniform" 
+                 Source="{Binding Path=GetPhoto}" 
+                 Margin="5 0 5 0"/>
+                        <StackPanel Grid.Column="1" >
+                            <TextBlock Margin="2" FontSize="16" 
+                     FontWeight="Bold" Text="{Binding Path=GetIdFIO}" 
+                     Width="Auto" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <TextBlock Grid.Row="4" Text="Дата:" 
+           Style="{StaticResource add_window_textblock}" Margin="0,5,10,0" VerticalAlignment="Top" Height="19"/>
+        <DatePicker x:Name="DatePickerDate" Grid.Column="1" 
+          HorizontalAlignment="Left"  Grid.Row="4" SelectedDate="{Binding Date}"
+          VerticalAlignment="Top"/>
+
+        <ComboBox x:Name="ComboBoxTimeBegin" Grid.Row="5" Grid.Column="1"  >
+            <ComboBoxItem Content="8:00"/>
+            <ComboBoxItem Content="9:00"/>
+            <ComboBoxItem Content="10:00"/>
+            <ComboBoxItem Content="11:00"/>
+            <ComboBoxItem Content="12:00"/>
+            <ComboBoxItem Content="13:00"/>
+            <ComboBoxItem Content="14:00"/>
+            <ComboBoxItem Content="15:00"/>
+            <ComboBoxItem Content="16:00"/>
+            <ComboBoxItem Content="17:00"/>
+            <ComboBoxItem Content="18:00"/>
+            <ComboBoxItem Content="19:00"/>
+        </ComboBox>
+
+        <ComboBox x:Name="ComboBoxTimeEnd" Grid.Row="6" Grid.Column="1"  >
+            <ComboBoxItem Content="8:00"/>
+            <ComboBoxItem Content="9:00"/>
+            <ComboBoxItem Content="10:00"/>
+            <ComboBoxItem Content="11:00"/>
+            <ComboBoxItem Content="12:00"/>
+            <ComboBoxItem Content="13:00"/>
+            <ComboBoxItem Content="14:00"/>
+            <ComboBoxItem Content="15:00"/>
+            <ComboBoxItem Content="16:00"/>
+            <ComboBoxItem Content="17:00"/>
+            <ComboBoxItem Content="18:00"/>
+            <ComboBoxItem Content="19:00"/>
+        </ComboBox>
+
+        <ComboBox x:Name="ComboBoxRoom" Grid.Row="7" Grid.Column="1" DisplayMemberPath="Title" >
+
+        </ComboBox>
+        <TextBlock Grid.Row="5" 
+           Style="{StaticResource add_window_textblock}"><Run Text="Время начала приёма"/><Run Text=":"/></TextBlock>
+        <StackPanel Grid.Row="5" Grid.Column="1" 
+          Orientation="Horizontal" 
+          HorizontalAlignment="Stretch" />
+
+        <TextBlock Grid.Row="6" 
+           Style="{StaticResource add_window_textblock}" Margin="0,6,10,6" Width="178"><Run Text="Время око"/><Run Text="нчания приёма"/><Run Text=":"/></TextBlock>
+        <TextBlock Grid.Row="7" 
+           Style="{StaticResource add_window_textblock}"><Run Text="Кабинет"/><Run Text=":"/></TextBlock>
+
+        <StackPanel Orientation="Horizontal"  Grid.Row="8" Grid.Column="0"
+          HorizontalAlignment="Center">
+            <Button Width="100" Height="30" 
+          Content="OK" 
+          x:Name="BtnOk" Click="BtnOk_Click" />
+            <Button Width="100"
+          Height="30" 
+          Content="Отмена" 
+          x:Name="BtnCancel" Click="BtnCancel_Click" />
+        </StackPanel>
+
+
     </Grid>
 </Page>

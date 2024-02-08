@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Хранилище PROF2024Model" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Хранилище MicModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DeseaseHistory">
           <Key>
             <PropertyRef Name="Id" />
@@ -116,12 +116,13 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
           <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
-          <Property Name="PatientId" Type="int" Nullable="false" />
-          <Property Name="StatusId" Type="int" Nullable="false" />
+          <Property Name="PatientId" Type="int" />
+          <Property Name="Status" Type="bit" Nullable="false" />
           <Property Name="TimeSheetId" Type="int" Nullable="false" />
+          <Property Name="CouponNumber" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Prescription">
           <Key>
@@ -194,7 +195,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Date" Type="date" Nullable="false" />
           <Property Name="TimeBegin" Type="time" Precision="7" Nullable="false" />
           <Property Name="TimeEnd" Type="time" Precision="7" Nullable="false" />
@@ -341,7 +342,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PatientReception_Patient">
-          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
           <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patient">
@@ -349,18 +350,6 @@
             </Principal>
             <Dependent Role="PatientReception">
               <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientReception_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PatientReception">
-              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -520,7 +509,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище PROF2024ModelContainer">
+        <EntityContainer Name="Хранилище MicModelContainer">
           <EntitySet Name="DeseaseHistory" EntityType="Self.DeseaseHistory" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EventType" EntityType="Self.EventType" Schema="dbo" store:Type="Tables" />
@@ -583,10 +572,6 @@
             <End Role="Patient" EntitySet="Patient" />
             <End Role="PatientReception" EntitySet="PatientReception" />
           </AssociationSet>
-          <AssociationSet Name="FK_PatientReception_Status" Association="Self.FK_PatientReception_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="PatientReception" EntitySet="PatientReception" />
-          </AssociationSet>
           <AssociationSet Name="FK_PatientReception_TimeSheet" Association="Self.FK_PatientReception_TimeSheet">
             <End Role="TimeSheet" EntitySet="TimeSheet" />
             <End Role="PatientReception" EntitySet="PatientReception" />
@@ -640,11 +625,10 @@
             <End Role="Ward" EntitySet="Ward" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PROF2024Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="DeseaseHistory">
           <Key>
             <PropertyRef Name="Id" />
@@ -785,11 +769,11 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="TimeBegin" Type="Time" Nullable="false" Precision="7" />
           <Property Name="TimeEnd" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="PatientId" Type="Int32" Nullable="false" />
-          <Property Name="StatusId" Type="Int32" Nullable="false" />
+          <Property Name="PatientId" Type="Int32" />
+          <Property Name="Status" Type="Boolean" Nullable="false" />
           <Property Name="TimeSheetId" Type="Int32" Nullable="false" />
+          <Property Name="CouponNumber" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Patient" Relationship="Self.FK_PatientReception_Patient" FromRole="PatientReception" ToRole="Patient" />
-          <NavigationProperty Name="Status" Relationship="Self.FK_PatientReception_Status" FromRole="PatientReception" ToRole="Status" />
           <NavigationProperty Name="TimeSheet" Relationship="Self.FK_PatientReception_TimeSheet" FromRole="PatientReception" ToRole="TimeSheet" />
         </EntityType>
         <EntityType Name="Prescription">
@@ -856,7 +840,6 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Color" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="PatientReceptions" Relationship="Self.FK_PatientReception_Status" FromRole="Status" ToRole="PatientReception" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1125,7 +1108,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PatientReception_Patient">
-          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
           <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Patient">
@@ -1145,18 +1128,6 @@
             </Principal>
             <Dependent Role="TreatmentEvent">
               <PropertyRef Name="PatientId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_PatientReception_Status">
-          <End Role="Status" Type="Self.Status" Multiplicity="1" />
-          <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="PatientReception">
-              <PropertyRef Name="StatusId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1307,10 +1278,6 @@
             <End Role="Patient" EntitySet="Patients" />
             <End Role="TreatmentEvent" EntitySet="TreatmentEvents" />
           </AssociationSet>
-          <AssociationSet Name="FK_PatientReception_Status" Association="Self.FK_PatientReception_Status">
-            <End Role="Status" EntitySet="Status" />
-            <End Role="PatientReception" EntitySet="PatientReceptions" />
-          </AssociationSet>
           <AssociationSet Name="FK_PatientReception_TimeSheet" Association="Self.FK_PatientReception_TimeSheet">
             <End Role="TimeSheet" EntitySet="TimeSheets" />
             <End Role="PatientReception" EntitySet="PatientReceptions" />
@@ -1333,9 +1300,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище PROF2024ModelContainer" CdmEntityContainer="MicEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище MicModelContainer" CdmEntityContainer="MicEntities">
           <EntitySetMapping Name="DeseaseHistories">
-            <EntityTypeMapping TypeName="PROF2024Model.DeseaseHistory">
+            <EntityTypeMapping TypeName="MicModel.DeseaseHistory">
               <MappingFragment StoreEntitySet="DeseaseHistory">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="VisitDate" ColumnName="VisitDate" />
@@ -1346,7 +1313,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="PROF2024Model.Employee">
+            <EntityTypeMapping TypeName="MicModel.Employee">
               <MappingFragment StoreEntitySet="Employee">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -1365,7 +1332,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="EventTypes">
-            <EntityTypeMapping TypeName="PROF2024Model.EventType">
+            <EntityTypeMapping TypeName="MicModel.EventType">
               <MappingFragment StoreEntitySet="EventType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1373,7 +1340,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HospitalBeds">
-            <EntityTypeMapping TypeName="PROF2024Model.HospitalBed">
+            <EntityTypeMapping TypeName="MicModel.HospitalBed">
               <MappingFragment StoreEntitySet="HospitalBed">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1383,7 +1350,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Hospitalizations">
-            <EntityTypeMapping TypeName="PROF2024Model.Hospitalization">
+            <EntityTypeMapping TypeName="MicModel.Hospitalization">
               <MappingFragment StoreEntitySet="Hospitalization">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Datetime" ColumnName="Datetime" />
@@ -1396,7 +1363,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HospitalizationDepartments">
-            <EntityTypeMapping TypeName="PROF2024Model.HospitalizationDepartment">
+            <EntityTypeMapping TypeName="MicModel.HospitalizationDepartment">
               <MappingFragment StoreEntitySet="HospitalizationDepartment">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1404,7 +1371,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HospitalizationReferrals">
-            <EntityTypeMapping TypeName="PROF2024Model.HospitalizationReferral">
+            <EntityTypeMapping TypeName="MicModel.HospitalizationReferral">
               <MappingFragment StoreEntitySet="HospitalizationReferral">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
@@ -1416,7 +1383,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Medcards">
-            <EntityTypeMapping TypeName="PROF2024Model.Medcard">
+            <EntityTypeMapping TypeName="MicModel.Medcard">
               <MappingFragment StoreEntitySet="Medcard">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="IssueDate" ColumnName="IssueDate" />
@@ -1428,7 +1395,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Patients">
-            <EntityTypeMapping TypeName="PROF2024Model.Patient">
+            <EntityTypeMapping TypeName="MicModel.Patient">
               <MappingFragment StoreEntitySet="Patient">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Surname" ColumnName="Surname" />
@@ -1451,19 +1418,20 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PatientReceptions">
-            <EntityTypeMapping TypeName="PROF2024Model.PatientReception">
+            <EntityTypeMapping TypeName="MicModel.PatientReception">
               <MappingFragment StoreEntitySet="PatientReception">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="TimeBegin" ColumnName="TimeBegin" />
                 <ScalarProperty Name="TimeEnd" ColumnName="TimeEnd" />
                 <ScalarProperty Name="PatientId" ColumnName="PatientId" />
-                <ScalarProperty Name="StatusId" ColumnName="StatusId" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="TimeSheetId" ColumnName="TimeSheetId" />
+                <ScalarProperty Name="CouponNumber" ColumnName="CouponNumber" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Prescriptions">
-            <EntityTypeMapping TypeName="PROF2024Model.Prescription">
+            <EntityTypeMapping TypeName="MicModel.Prescription">
               <MappingFragment StoreEntitySet="Prescription">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DeseaseHistoryId" ColumnName="DeseaseHistoryId" />
@@ -1474,7 +1442,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Referrals">
-            <EntityTypeMapping TypeName="PROF2024Model.Referral">
+            <EntityTypeMapping TypeName="MicModel.Referral">
               <MappingFragment StoreEntitySet="Referral">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="EventTypeId" ColumnName="EventTypeId" />
@@ -1483,7 +1451,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Roles">
-            <EntityTypeMapping TypeName="PROF2024Model.Role">
+            <EntityTypeMapping TypeName="MicModel.Role">
               <MappingFragment StoreEntitySet="Role">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1492,7 +1460,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="PROF2024Model.Room">
+            <EntityTypeMapping TypeName="MicModel.Room">
               <MappingFragment StoreEntitySet="Room">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1502,7 +1470,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="RoomTypes">
-            <EntityTypeMapping TypeName="PROF2024Model.RoomType">
+            <EntityTypeMapping TypeName="MicModel.RoomType">
               <MappingFragment StoreEntitySet="RoomType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1510,7 +1478,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Specializations">
-            <EntityTypeMapping TypeName="PROF2024Model.Specialization">
+            <EntityTypeMapping TypeName="MicModel.Specialization">
               <MappingFragment StoreEntitySet="Specialization">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1518,7 +1486,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="PROF2024Model.Status">
+            <EntityTypeMapping TypeName="MicModel.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -1527,7 +1495,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="PROF2024Model.sysdiagram">
+            <EntityTypeMapping TypeName="MicModel.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1538,7 +1506,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TimeSheets">
-            <EntityTypeMapping TypeName="PROF2024Model.TimeSheet">
+            <EntityTypeMapping TypeName="MicModel.TimeSheet">
               <MappingFragment StoreEntitySet="TimeSheet">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Date" ColumnName="Date" />
@@ -1551,7 +1519,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TreatmentEvents">
-            <EntityTypeMapping TypeName="PROF2024Model.TreatmentEvent">
+            <EntityTypeMapping TypeName="MicModel.TreatmentEvent">
               <MappingFragment StoreEntitySet="TreatmentEvent">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="DateTime" ColumnName="DateTime" />
@@ -1566,7 +1534,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Users">
-            <EntityTypeMapping TypeName="PROF2024Model.User">
+            <EntityTypeMapping TypeName="MicModel.User">
               <MappingFragment StoreEntitySet="User">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
@@ -1575,7 +1543,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Wards">
-            <EntityTypeMapping TypeName="PROF2024Model.Ward">
+            <EntityTypeMapping TypeName="MicModel.Ward">
               <MappingFragment StoreEntitySet="Ward">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

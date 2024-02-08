@@ -17,12 +17,12 @@ namespace MICApp.Models
         public int Id { get; set; }
         public System.TimeSpan TimeBegin { get; set; }
         public System.TimeSpan TimeEnd { get; set; }
-        public int PatientId { get; set; }
-        public int StatusId { get; set; }
+        public Nullable<int> PatientId { get; set; }
+        public bool Status { get; set; }
         public int TimeSheetId { get; set; }
+        public int CouponNumber { get; set; }
     
         public virtual Patient Patient { get; set; }
-        public virtual Status Status { get; set; }
         public virtual TimeSheet TimeSheet { get; set; }
     }
 }

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="PROF2024Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+<Schema Namespace="MicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityType Name="DeseaseHistory">
     <Key>
       <PropertyRef Name="Id" />
@@ -140,11 +140,11 @@
     <Property Name="Id" Type="Int32" Nullable="false" />
     <Property Name="TimeBegin" Type="Time" Nullable="false" Precision="7" />
     <Property Name="TimeEnd" Type="Time" Nullable="false" Precision="7" />
-    <Property Name="PatientId" Type="Int32" Nullable="false" />
-    <Property Name="StatusId" Type="Int32" Nullable="false" />
+    <Property Name="PatientId" Type="Int32" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
     <Property Name="TimeSheetId" Type="Int32" Nullable="false" />
+    <Property Name="CouponNumber" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Patient" Relationship="Self.FK_PatientReception_Patient" FromRole="PatientReception" ToRole="Patient" />
-    <NavigationProperty Name="Status" Relationship="Self.FK_PatientReception_Status" FromRole="PatientReception" ToRole="Status" />
     <NavigationProperty Name="TimeSheet" Relationship="Self.FK_PatientReception_TimeSheet" FromRole="PatientReception" ToRole="TimeSheet" />
   </EntityType>
   <EntityType Name="Prescription">
@@ -211,7 +211,6 @@
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="Color" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <NavigationProperty Name="PatientReceptions" Relationship="Self.FK_PatientReception_Status" FromRole="Status" ToRole="PatientReception" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -480,7 +479,7 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PatientReception_Patient">
-    <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+    <End Role="Patient" Type="Self.Patient" Multiplicity="0..1" />
     <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Patient">
@@ -500,18 +499,6 @@
       </Principal>
       <Dependent Role="TreatmentEvent">
         <PropertyRef Name="PatientId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_PatientReception_Status">
-    <End Role="Status" Type="Self.Status" Multiplicity="1" />
-    <End Role="PatientReception" Type="Self.PatientReception" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Status">
-        <PropertyRef Name="Id" />
-      </Principal>
-      <Dependent Role="PatientReception">
-        <PropertyRef Name="StatusId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -661,10 +648,6 @@
     <AssociationSet Name="FK_TreatmentEvents_Patient" Association="Self.FK_TreatmentEvents_Patient">
       <End Role="Patient" EntitySet="Patients" />
       <End Role="TreatmentEvent" EntitySet="TreatmentEvents" />
-    </AssociationSet>
-    <AssociationSet Name="FK_PatientReception_Status" Association="Self.FK_PatientReception_Status">
-      <End Role="Status" EntitySet="Status" />
-      <End Role="PatientReception" EntitySet="PatientReceptions" />
     </AssociationSet>
     <AssociationSet Name="FK_PatientReception_TimeSheet" Association="Self.FK_PatientReception_TimeSheet">
       <End Role="TimeSheet" EntitySet="TimeSheets" />

@@ -1,4 +1,5 @@
 ﻿using MICApp.Models;
+using MICApp.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace MICApp.Pages
 
         void LoadDataGrid()
         {
+            MicEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
             List<TimeSheet> timeSheets = MicEntities.GetContext().TimeSheets.OrderBy(p => p.Date).ToList();
             ListBoxEmployeeTimeSheet.ItemsSource = timeSheets;
             _itemcount = timeSheets.Count;
@@ -121,9 +123,10 @@ namespace MICApp.Pages
             // обновляем данные каждый раз когда активируется этот Page
             if (Visibility == Visibility.Visible)
             {
+
                 ListBoxEmployeeTimeSheet.ItemsSource = null;
                 //загрузка обновленных данных
-                MicEntities.GetContext().ChangeTracker.Entries().ToList().ForEach(p => p.Reload());
+       
                 LoadComboBoxItems();
                 LoadDataGrid();
 
@@ -134,12 +137,24 @@ namespace MICApp.Pages
 
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                PatientReceptionWindow  window = new PatientReceptionWindow((sender as Button).DataContext as TimeSheet);
+                if (window.ShowDialog() == true)
+                {
+                    LoadDataGrid();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Ошибка");
+            }
 
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Manager.MainFrame.Navigate(new AddTimeSheet(new TimeSheet()));
         }
 
         private void CheckBoxTimeSheetOnWeek_Checked(object sender, RoutedEventArgs e)
