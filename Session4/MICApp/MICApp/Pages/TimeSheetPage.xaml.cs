@@ -133,8 +133,6 @@ namespace MICApp.Pages
             }
         }
 
-
-
         private void BtnEdit_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -149,7 +147,6 @@ namespace MICApp.Pages
             {
                 MessageBox.Show("Ошибка");
             }
-
         }
 
         private void BtnAdd_Click(object sender, RoutedEventArgs e)

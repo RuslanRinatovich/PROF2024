@@ -116,7 +116,9 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="Талон" VerticalAlignment="Center" Grid.Row="3" Margin="20 0 0 0"  Grid.Column="0" Height="16"  />
-        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ComboCoupon" SelectedItem="{Binding PatientReception}" DisplayMemberPath="GetCoupon"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="ComboCoupon" 
+                  SelectedItem="{Binding PatientReception}" 
+                  DisplayMemberPath="GetCoupon"/>
         <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Grid.Row="5" Grid.ColumnSpan="2" Margin="127,0,103,0" Width="162">
             <Button IsDefault="True"  MinWidth="60" Margin="5" x:Name="BtnOk" Click="BtnOk_Click" >OK</Button>
             <Button IsCancel="True" MinWidth="60" Margin="5">Отмена</Button>

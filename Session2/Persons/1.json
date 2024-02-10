@@ -1,0 +1,170 @@
+[
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 16,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 1,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 22,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 2,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 12,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 3,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 22,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 4,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 18,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 5,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 7,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 6,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 19,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 7,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 22,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 8,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 11,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 9,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 14,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 10,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 4,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 11,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 18,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 12,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 17,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 13,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 12,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 14,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 1,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 15,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 2,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 16,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 6,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 17,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 20,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 18,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 19,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 19,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 3,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 20,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 10,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 21,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 10,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 22,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  },
+  {
+    "LastSecurityPointDirection": "out",
+    "LastSecurityPointNumber": 4,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 23,
+    "PersonRole": "\u041a\u043b\u0438\u0435\u043d\u0442"
+  },
+  {
+    "LastSecurityPointDirection": "in",
+    "LastSecurityPointNumber": 6,
+    "LastSecurityPointTime": "Sat, 10 Feb 2024 11:43:38 GMT",
+    "PersonCode": 24,
+    "PersonRole": "\u0421\u043e\u0442\u0440\u0443\u0434\u043d\u0438\u043a"
+  }
+]

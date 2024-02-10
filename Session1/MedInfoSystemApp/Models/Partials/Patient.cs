@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 namespace MedInfoSystemApp.Models
 {
     public partial class Patient
-
     {
-
 
         public string GetPhoto
         {
@@ -41,7 +39,6 @@ namespace MedInfoSystemApp.Models
         {
             get
             {
-
                 return $"#{Id}: {Surname} {Name} {Patronymic}";
             }
         }

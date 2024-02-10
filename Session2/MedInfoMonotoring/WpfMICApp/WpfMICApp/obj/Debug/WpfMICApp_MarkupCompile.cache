@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-d:\PROF2024\PROF2024\MedInfoMonotoring\WpfMICApp\WpfMICApp\obj\Debug\
+d:\PROF2024\PROF2024\Session2\MedInfoMonotoring\WpfMICApp\WpfMICApp\obj\Debug\
 WpfMICApp
 none
 false
 DEBUG;TRACE
-d:\PROF2024\PROF2024\MedInfoMonotoring\WpfMICApp\WpfMICApp\App.xaml
+d:\PROF2024\PROF2024\Session2\MedInfoMonotoring\WpfMICApp\WpfMICApp\App.xaml
 3683810569
 2794529925
-28-1852198871
-20-1567251747
+291600409058
+20-385814016
 MainWindow.xaml;Pages\LookPatientsPage.xaml;Pages\PatientMovePage.xaml;
 
-False
+True
 

@@ -52,18 +52,7 @@ namespace MICApp.Windows
             TextBlockInfo.Text = $" Результат запроса: {_itemcount} записей из {_itemcount}";
         }
 
-        private void PageIsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
-        {
-            //обновление данных после каждой активации окна
-            if (Visibility == Visibility.Visible)
-            {
-                MicEntities.GetContext().ChangeTracker.Entries().ToList().
-        ForEach(p => p.Reload());
-                ListBoxPatients.ItemsSource = MicEntities.GetContext().Patients.
-        OrderBy(p => p.Id).ToList();
-            }
-        }
-
+       
         // Поиск мероприятий, которые содержат данную поисковую строку
         private void TBoxSearchTextChanged(object sender, TextChangedEventArgs e)
         {

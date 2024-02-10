@@ -79,7 +79,7 @@ namespace WpfMICApp.Pages
 
         void timer_Tick(object sender, EventArgs e)
         {
-           // GetDataFromUrlAsync();
+            GetDataFromUrlAsync();
         }
 
         void GetDataFromUrlAsync()
